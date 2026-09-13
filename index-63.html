@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#09000f" />
+<title>Horror Font Studio</title>
+<style>
+:root{
+  --bg:#07000b; --panel:#120718; --panel2:#1c0a25; --text:#fff; --muted:#b8a8c4;
+  --pink:#ff2bd6; --violet:#8e4dff; --cyan:#3ee9ff; --danger:#ff4f77;
+}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100vh;background:
+radial-gradient(circle at 15% 10%,rgba(255,43,214,.18),transparent 28%),
+radial-gradient(circle at 90% 0,rgba(62,233,255,.12),transparent 24%),
+linear-gradient(180deg,#060009,#0c0012 55%,#050007);padding:18px 12px 40px}
+.app{max-width:1100px;margin:auto}.hero{text-align:center;padding:8px 0 24px}.hero h1{margin:0;font-size:clamp(2rem,7vw,4rem);letter-spacing:-.05em;background:linear-gradient(90deg,#fff,#ff95e9 35%,#a975ff 65%,#6bf3ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 28px rgba(255,43,214,.22)}
+.hero p{color:var(--muted);margin:10px auto 0;max-width:720px;line-height:1.5}.chiprow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{font-size:.74rem;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.045);padding:7px 9px;border-radius:999px;color:#d9cbe0}
+.panel{background:linear-gradient(155deg,rgba(29,8,40,.92),rgba(11,3,17,.94));border:1px solid rgba(255,43,214,.2);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.34),0 0 25px rgba(137,65,255,.12);padding:16px;margin-bottom:14px}.panel h2{font-size:1rem;margin:0 0 12px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}.field label{font-size:.78rem;font-weight:800;color:#e9dff0}.field input[type=text],.field input[type=number],.field select,.field textarea{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25);color:#fff;padding:11px 12px;font:inherit;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,43,214,.08)}.field input[type=range]{width:100%;accent-color:var(--pink)}.range-line{display:grid;grid-template-columns:1fr 64px;gap:10px;align-items:center}.range-val{font-size:.78rem;color:var(--cyan);text-align:right;font-weight:800}.btnrow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.btn{border:0;border-radius:12px;min-height:44px;padding:10px 12px;color:white;font:inherit;font-weight:900;cursor:pointer;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.btn.primary{background:linear-gradient(135deg,var(--pink),var(--violet));box-shadow:0 0 18px rgba(255,43,214,.2)}.btn.cyan{background:linear-gradient(135deg,#067e97,#4d35b3)}.btn.danger{background:linear-gradient(135deg,#7f1737,#4b1027)}
+.stage-wrap{display:flex;flex-direction:column;gap:10px}.stage{min-height:360px;border-radius:16px;border:1px solid rgba(255,255,255,.09);overflow:hidden;background:#000;position:relative;display:grid;place-items:center}.stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.06),transparent 40%),repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 3px);pointer-events:none}.preview{position:relative;z-index:2;text-align:center;padding:30px;max-width:100%;word-break:break-word;line-height:.88;white-space:pre-wrap;color:white;filter:drop-shadow(0 0 10px rgba(255,255,255,.12));font-family:Georgia,"Times New Roman",serif;font-weight:600;transform-origin:center}.preset-horror{font-stretch:condensed;letter-spacing:.07em;text-transform:uppercase}.meta{color:var(--muted);font-size:.74rem;line-height:1.45}.uploadbox{border:1px dashed rgba(255,255,255,.18);border-radius:14px;padding:12px;background:rgba(255,255,255,.025)}.uploadbox input{width:100%}.swatches{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.swatch{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,.4);cursor:pointer}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tiny{font-size:.72rem;color:var(--muted)}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.stage{min-height:300px}.btnrow{grid-template-columns:1fr 1fr}.btnrow .primary{grid-column:1/-1}}@media(max-width:460px){body{padding-left:9px;padding-right:9px}.panel{padding:13px}.two{grid-template-columns:1fr}.btnrow{grid-template-columns:1fr}.btnrow .primary{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <h1>HORROR FONT STUDIO</h1>
+    <p>Type anything, style it in your custom font, and export clean artwork for covers, posts, stickers, shirts, or logos.</p>
+    <div class="chiprow"><span class="chip">⚡ Free</span><span class="chip">📱 Samsung friendly</span><span class="chip">🖼 PNG + SVG export</span><span class="chip">🔤 Upload your own font</span></div>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>✍️ Text</h2>
+      <div class="field"><label for="text">WORDS</label><textarea id="text" rows="4">YOUR NIGHTMARE\nHAS A NAME</textarea></div>
+
+      <h2>🔤 Font</h2>
+      <div class="field">
+        <label for="preset">STYLE PRESET</label>
+        <select id="preset">
+          <option value="horror">Horror Deco — tall, eerie, fractured</option>
+          <option value="classic">Classic Editorial Serif</option>
+          <option value="ritual">Ritual Gothic</option>
+          <option value="minimal">Minimal Condensed</option>
+        </select>
+      </div>
+      <div class="uploadbox field">
+        <label for="fontFile">UPLOAD YOUR FONT FILE</label>
+        <input id="fontFile" type="file" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2" />
+        <div class="tiny" id="fontStatus">No custom font loaded. Your file stays on your device.</div>
+      </div>
+
+      <div class="two">
+        <div class="field"><label>FONT SIZE</label><div class="range-line"><input id="size" type="range" min="28" max="180" value="92"><span class="range-val" id="sizeVal">92</span></div></div>
+        <div class="field"><label>LETTER SPACING</label><div class="range-line"><input id="spacing" type="range" min="-8" max="28" value="7"><span class="range-val" id="spacingVal">7</span></div></div>
+      </div>
+      <div class="two">
+        <div class="field"><label>VERTICAL STRETCH</label><div class="range-line"><input id="scaleY" type="range" min="70" max="180" value="125"><span class="range-val" id="scaleYVal">125%</span></div></div>
+        <div class="field"><label>HORIZONTAL SQUEEZE</label><div class="range-line"><input id="scaleX" type="range" min="55" max="130" value="78"><span class="range-val" id="scaleXVal">78%</span></div></div>
+      </div>
+      <div class="two">
+        <div class="field"><label>ROTATION</label><div class="range-line"><input id="rotation" type="range" min="-10" max="10" value="0"><span class="range-val" id="rotationVal">0°</span></div></div>
+        <div class="field"><label>ROUGHNESS</label><div class="range-line"><input id="rough" type="range" min="0" max="100" value="28"><span class="range-val" id="roughVal">28</span></div></div>
+      </div>
+
+      <h2>🎨 Color</h2>
+      <div class="two">
+        <div class="field"><label>TEXT COLOR</label><input id="textColor" type="color" value="#f5f0ea"></div>
+        <div class="field"><label>BACKGROUND</label><input id="bgColor" type="color" value="#080808"></div>
+      </div>
+      <div class="field"><label>GLOW</label><div class="range-line"><input id="glow" type="range" min="0" max="40" value="8"><span class="range-val" id="glowVal">8</span></div></div>
+      <div class="swatches">
+        <button class="swatch" data-fg="#f5f0ea" data-bg="#080808" style="background:#f5f0ea" title="Bone"></button>
+        <button class="swatch" data-fg="#ff2bd6" data-bg="#09000f" style="background:#ff2bd6" title="Neon Pink"></button>
+        <button class="swatch" data-fg="#e9ddff" data-bg="#12001f" style="background:#9c5cff" title="Violet"></button>
+        <button class="swatch" data-fg="#7df5ff" data-bg="#001014" style="background:#7df5ff" title="Cyan"></button>
+        <button class="swatch" data-fg="#ffefcc" data-bg="#201004" style="background:#d2a74a" title="Old Gold"></button>
+      </div>
+    </section>
+
+    <section class="panel stage-wrap">
+      <h2>👁 Preview</h2>
+      <div class="stage" id="stage"><div class="preview preset-horror" id="preview"></div></div>
+      <div class="meta" id="meta">Built-in horror-deco preset. Upload your actual font file to use your exact lettering.</div>
+      <div class="btnrow">
+        <button class="btn primary" id="pngBtn">⬇ Export PNG</button>
+        <button class="btn cyan" id="svgBtn">⬇ Export SVG</button>
+        <button class="btn" id="transparentBtn">◫ Transparent BG</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const controls = ['text','preset','size','spacing','scaleY','scaleX','rotation','rough','textColor','bgColor','glow'];
+let customFontName = null;
+let customFontDataUrl = null;
+let transparent = false;
+
+function escapeXml(s){return String(s).replace(/[<>&'\"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','\"':'&quot;'}[c]));}
+function presetFamily(p){
+  if(customFontName) return `'${customFontName}'`;
+  if(p==='classic') return `Bodoni MT, Didot, Georgia, 'Times New Roman', serif`;
+  if(p==='ritual') return `Palatino Linotype, Book Antiqua, Georgia, serif`;
+  if(p==='minimal') return `Arial Narrow, Roboto Condensed, Impact, sans-serif`;
+  return `Georgia, 'Times New Roman', serif`;
+}
+function roughShadow(n,color){
+  const r = Number(n)/100;
+  const a = (0.18*r).toFixed(3);
+  const b = (0.12*r).toFixed(3);
+  return `${-1.2*r}px ${0.5*r}px 0 rgba(255,255,255,${a}), ${1.4*r}px ${-0.8*r}px 0 rgba(0,0,0,${b})`;
+}
+function update(){
+  const p=$('preset').value, fg=$('textColor').value, bg=$('bgColor').value;
+  $('preview').textContent=$('text').value;
+  $('preview').style.fontFamily=presetFamily(p);
+  $('preview').style.fontSize=$('size').value+'px';
+  $('preview').style.letterSpacing=$('spacing').value+'px';
+  $('preview').style.color=fg;
+  $('preview').style.transform=`scaleX(${$('scaleX').value/100}) scaleY(${$('scaleY').value/100}) rotate(${$('rotation').value}deg)`;
+  $('preview').style.textShadow=`0 0 ${$('glow').value}px ${fg}, ${roughShadow($('rough').value,fg)}`;
+  $('preview').style.fontWeight=p==='minimal'?'700':'600';
+  $('preview').style.textTransform=p==='classic'?'none':'uppercase';
+  $('stage').style.background=transparent?'transparent':bg;
+  $('sizeVal').textContent=$('size').value;
+  $('spacingVal').textContent=$('spacing').value;
+  $('scaleYVal').textContent=$('scaleY').value+'%';
+  $('scaleXVal').textContent=$('scaleX').value+'%';
+  $('rotationVal').textContent=$('rotation').value+'°';
+  $('roughVal').textContent=$('rough').value;
+  $('glowVal').textContent=$('glow').value;
+}
+controls.forEach(id=>$(id).addEventListener('input',update));
+$('preset').addEventListener('change',update);
+
+document.querySelectorAll('.swatch').forEach(b=>b.addEventListener('click',()=>{
+  $('textColor').value=b.dataset.fg; $('bgColor').value=b.dataset.bg; transparent=false; update();
+}));
+
+$('transparentBtn').addEventListener('click',()=>{transparent=!transparent;$('transparentBtn').textContent=transparent?'◩ Solid BG':'◫ Transparent BG';update();});
+
+$('fontFile').addEventListener('change',async e=>{
+  const file=e.target.files?.[0]; if(!file)return;
+  try{
+    const buf=await file.arrayBuffer();
+    const fontName='UserCustomFont_'+Date.now();
+    const face=new FontFace(fontName,buf);
+    await face.load(); document.fonts.add(face); customFontName=fontName;
+    customFontDataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file);});
+    $('fontStatus').textContent=`Loaded: ${file.name}`; $('meta').textContent='Using your uploaded font locally. It is not uploaded anywhere.'; update();
+  }catch(err){$('fontStatus').textContent='Could not load that font file.';console.error(err);}
+});
+
+function makeSvg(){
+  const stage=$('stage'); const rect=stage.getBoundingClientRect();
+  const w=Math.max(900,Math.round(rect.width*2)), h=Math.max(600,Math.round(rect.height*2));
+  const text=$('text').value; const lines=text.split(/\n/);
+  const size=Number($('size').value)*2, spacing=Number($('spacing').value)*2;
+  const fg=$('textColor').value, bg=$('bgColor').value, glow=Number($('glow').value)*2;
+  const sx=$('scaleX').value/100, sy=$('scaleY').value/100, rot=$('rotation').value;
+  const p=$('preset').value; const family=customFontName?customFontName:(p==='minimal'?'Arial Narrow':'Georgia');
+  const lineH=size*.92; const startY=h/2-((lines.length-1)*lineH)/2;
+  const textEls=lines.map((ln,i)=>`<text x="${w/2}" y="${startY+i*lineH}" text-anchor="middle" dominant-baseline="middle" font-family="${escapeXml(family)}" font-size="${size}" font-weight="600" letter-spacing="${spacing}" fill="${fg}">${escapeXml(p==='classic'?ln:ln.toUpperCase())}</text>`).join('');
+  const fontStyle=customFontDataUrl?`<style>@font-face{font-family:'${customFontName}';src:url('${customFontDataUrl}');}</style>`:'';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${fontStyle}<defs><filter id="g"><feGaussianBlur stdDeviation="${Math.max(0,glow/3)}" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>${transparent?'':`<rect width="100%" height="100%" fill="${bg}"/>`}<g transform="translate(${w/2} ${h/2}) rotate(${rot}) scale(${sx} ${sy}) translate(${-w/2} ${-h/2})" filter="url(#g)">${textEls}</g></svg>`;
+}
+function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
+$('svgBtn').addEventListener('click',()=>downloadBlob(new Blob([makeSvg()],{type:'image/svg+xml'}),'horror-font-art.svg'));
+$('pngBtn').addEventListener('click',()=>{
+  const svg=makeSvg(); const blob=new Blob([svg],{type:'image/svg+xml'}); const url=URL.createObjectURL(blob); const img=new Image();
+  img.onload=()=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);URL.revokeObjectURL(url);c.toBlob(b=>downloadBlob(b,'horror-font-art.png'),'image/png');}; img.src=url;
+});
+update();
+</script>
+</body>
+</html>
